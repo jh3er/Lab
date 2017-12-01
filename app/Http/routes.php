@@ -19,4 +19,4 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-route::post('/register' , 'UserController@register');
+//route::post('/register' , 'UserController@register');
