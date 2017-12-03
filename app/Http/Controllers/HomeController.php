@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
+use Carbon\carbon ;
+
 class HomeController extends Controller
 {
     /**
