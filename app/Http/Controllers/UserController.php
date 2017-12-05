@@ -10,6 +10,8 @@ use App\User;
 
 class UserController extends Controller
 {
-
-	
+	public function editProfile()
+    {
+    	return view('profile');
+    }
 }
