@@ -19,6 +19,8 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/profile','ProfileController@index');
+Route::get('/profile','UserController@index');
+
+Route::post('/updateUser/{id}' , 'UserController@update');
 
 //route::post('/register' , 'UserController@register');
