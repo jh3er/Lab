@@ -70,7 +70,7 @@
                             <label for="profilePicture" class="col-md-4 control-label">Profile Picture</label>
 
                             <div class="col-md-6">
-                                <input id="profilePicture" type="file" class="form-control" name="profilePicture">
+                                <input id="profilePicture" type="file" name="profilePicture">
 
                                 @if ($errors->has('profilePicture'))
                                     <span class="help-block">
