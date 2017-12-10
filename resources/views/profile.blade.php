@@ -7,8 +7,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Edit Profle</div>
                 <div class="panel-body">
+
                     <form class="form-horizontal" role="form" method="POST" action="/updateUser/{{Auth::User()->id}}" enctype="multipart/form-data">
                         {{csrf_field()}}
+
+                    <img src="upload/profile/{{Auth::User()->profile_picture}}">   
+
 
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Name</label>
@@ -29,6 +33,7 @@
                             <div class="col-md-6">
                                 <input id="profilePicture" type="file" name="profilePicture">
                             </div>
+
                         </div>
                         
                         <div class="form-group">

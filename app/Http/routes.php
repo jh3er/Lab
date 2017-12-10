@@ -23,4 +23,6 @@ Route::get('/profile','UserController@index');
 
 Route::post('/updateUser/{id}' , 'UserController@update');
 
+route::get('/shoes' , 'ShoesController@index') ;
+
 //route::post('/register' , 'UserController@register');
