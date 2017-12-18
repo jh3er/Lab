@@ -40,18 +40,30 @@
 
                 <!-- Branding Image -->
     
-                    <img class="navbar-brand" src="img/logo.svg">
-             
+                   <a href="/"> <img class="navbar-brand" src="/img/logo.svg"></a>
+                    
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                
-               
+                @if(!Auth::guest())
+                    @if(Auth::user()->email === 'admin@admin.com')
+                        <ul class="nav navbar-nav navbar-left">
+                            <li><a href="#">nav bar admin</a></li>
+                        </ul> 
+                    @else
+                        <ul class="nav navbar-nav navbar-left">
+                            <li><a href="/profile">Profile</a></li>
+                            <li><a href="/shoes">Shoes</a></li>
+                            <li><a href="/viewcart">Your Cart<i style="font-size:19px" class="fa">&#xf07a;</i></a></li>
+                            <li><a href="#">Transaction History</a></li>
+                        </ul>
+                    @endif    
+                @endif
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-                        <li> {{Carbon\Carbon::now()->toFormattedDateString()}}</li>
+                        <li><a href="">{{Carbon\Carbon::now()->toFormattedDateString()}}</a></li>
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>

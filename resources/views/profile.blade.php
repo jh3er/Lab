@@ -10,9 +10,9 @@
 
                     <form class="form-horizontal" role="form" method="POST" action="/updateUser/{{Auth::User()->id}}" enctype="multipart/form-data">
                         {{csrf_field()}}
-
-                    <img src="upload/profile/{{Auth::User()->profile_picture}}">   
-
+                        <div class="form-group" style="margin-left: 15%;">
+                            <img src="upload/profile/{{Auth::User()->profile_picture}}">   
+                        </div>
 
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Name</label>

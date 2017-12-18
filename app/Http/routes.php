@@ -23,6 +23,25 @@ Route::get('/profile','UserController@index');
 
 Route::post('/updateUser/{id}' , 'UserController@update');
 
+//--------------------------------------------------------------\\
+
+//controller for shoes
+
 route::get('/shoes' , 'ShoesController@index') ;
+
+route::get('/display/{id}' , 'ShoesController@display') ;
+
+route::post('/addCart/{id}/{price}' , 'ShoesController@addToCart') ;
+
+//--------------------------------------------------------------\\
+//controller for cart
+route::get('/viewcart' ,'CartController@index') ;
+
+route::get('/deleteCart/{id}' , 'CartController@delete') ;
+
+//--------------------------------------------------------------\\
+//controller for transaction
+
+route::post('/checkout' ,'TransactionController@insert') ;
 
 //route::post('/register' , 'UserController@register');
