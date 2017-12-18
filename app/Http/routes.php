@@ -71,4 +71,16 @@ Route::get('/test5', function () {
     return view('brandList');
 });
 
+Route::get('/test6', function () {
+    return view('updateUser');
+});
+
+Route::get('/test7', function () {
+    return view('insertUser');
+});
+
+Route::get('/test8', function () {
+    return view('userList');
+});
+
 
