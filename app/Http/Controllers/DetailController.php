@@ -15,12 +15,10 @@ class DetailController extends Controller
 
     	$d = DB::table('detail')
     			->join('shoes' , 'shoes.id' , '=' , 'detail.ShoesID')
-    			->select('shoes.name' , 'detail.Qty')
+    			->select('shoes.name' , 'detail.Qty' , 'shoes.price')
     			->where('detail.TranId' , '=' , $tranId ) 
     			->get();
 
-    	dd($d);
-
-    	return view('' , compact('d')) ;
+    	return view('transactionDetail' , compact('d')) ;
     }
 }

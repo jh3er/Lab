@@ -56,7 +56,7 @@
                             <li><a href="/profile">Profile</a></li>
                             <li><a href="/shoes">Shoes</a></li>
                             <li><a href="/viewcart">Your Cart<i style="font-size:19px" class="fa">&#xf07a;</i></a></li>
-                            <li><a href="#">Transaction History</a></li>
+                            <li><a href="/tranhistory">Transaction History</a></li>
                         </ul>
                     @endif    
                 @endif

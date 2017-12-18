@@ -46,6 +46,9 @@ route::get('/deleteCart/{id}' , 'CartController@delete') ;
 
 route::post('/checkout' ,'TransactionController@insert') ;
 
+
 route::get('/tranhistory' , 'TransactionController@index') ;
 
-//route::post('/register' , 'UserController@register');
+route::get('/detail/{tranId}' , 'DetailController@index') ;
+
+

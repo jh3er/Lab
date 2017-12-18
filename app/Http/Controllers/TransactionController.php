@@ -30,9 +30,7 @@ class TransactionController extends Controller
 
             $t = Transaction::all() ;
 
-            dd($t);
-            
-            return view ('' , compact('t')) ;
+            return view ('transaction' , compact('t')) ;
 
         }
 
@@ -41,7 +39,8 @@ class TransactionController extends Controller
             $t = DB::table('transactions')
                     ->where('UserId' , '=' , Auth::user()->id)
                     ->get();
-            dd($t);
+                    
+            return view ('transaction' , compact('t')) ;       
         }    
 
     }
