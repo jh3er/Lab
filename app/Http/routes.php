@@ -45,3 +45,11 @@ route::get('/deleteCart/{id}' , 'CartController@delete') ;
 route::post('/checkout' ,'TransactionController@insert') ;
 
 //route::post('/register' , 'UserController@register');
+
+route::get('/transaction',function(){
+	return view('transaction');
+});
+
+route::get('/transactionDetail',function(){
+	return view('transactionDetail');
+});
