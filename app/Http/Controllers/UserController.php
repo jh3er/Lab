@@ -63,4 +63,48 @@ class UserController extends Controller
 
         $u->delete() ;
     }
+
+    public function insert(Request $r)
+    {
+
+       $this->validate($r, [
+            'name' => 'required|max:255|min:3',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:5|confirmed',
+            'profilePicture' => 'required' ,
+            'gender' => 'required' ,
+            'address' => 'required|min:10'
+        ]);
+
+        $file = $r->file('profilePicture') ;
+
+        $filename = $file->getClientOriginalName();
+
+        $r->file('profilePicture')->move("upload/profile", $filename);
+
+        $u = new User ;
+
+        $u->name = $r->name ;
+
+        $u->email = $r->email ;
+
+        $u->password = bcrypt($r->password) ;
+
+        $u->profile_picture = $filename ;
+
+        $u->dob = $r->dob ;
+
+        $u->address = $r->address ;
+
+        $u->save();
+    }
+
+
+    public function display($id)
+    {
+        $u = User::find($id) ;
+
+        return view('' , compact('u')) ;
+    }
+
 }

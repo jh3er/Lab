@@ -61,21 +61,21 @@ class ShoesController extends Controller
 
     public function insert(Request $r)
     {
-        // $this->validate($r, [
+        $this->validate($r, [
 
-        // 'name' => 'required|unique|min:3',
+        'name' => 'required|unique:shoes|min:3',
 
-        // 'brand' => 'required' ,
+        'brand' => 'required' ,
 
-        // 'description' => 'required' ,
+        'description' => 'required' ,
 
-        // 'price' => 'numeric|min:1000' ,
+        'price' => 'numeric|min:1000' ,
 
-        // 'discount' => 'required|numeric|min:0|max:100' ,
+        'discount' => 'required|numeric|min:0|max:100' ,
 
-        // 'stock' => 'required|numeric|min:0|max:100' 
+        'stock' => 'required|numeric|min:0|max:100' 
 
-        // ]);
+        ]);
 
         $file = $r->file('picture') ;
 
@@ -107,21 +107,21 @@ class ShoesController extends Controller
 
     public function update(Request $r , $id)
     {
-        // $this->validate($r, [
+        $this->validate($r, [
 
-        // 'name' => 'required|unique|min:3',
+        'name' => 'required|unique:shoes|min:3',
 
-        // 'brand' => 'required' ,
+        'brand' => 'required' ,
 
-        // 'description' => 'required' ,
+        'description' => 'required' ,
 
-        // 'price' => 'numeric|min:1000' ,
+        'price' => 'numeric|min:1000' ,
 
-        // 'discount' => 'required|numeric|min:0|max:100' ,
+        'discount' => 'required|numeric|min:0|max:100' ,
 
-        // 'stock' => 'required|numeric|min:0|max:100' 
+        'stock' => 'required|numeric|min:0|max:100' 
 
-        // ]);
+        ]);
         
         if($r->hasFile('picture'))
         {
