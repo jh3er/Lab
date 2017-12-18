@@ -49,7 +49,40 @@
                 @if(!Auth::guest())
                     @if(Auth::user()->email === 'admin@admin.com')
                         <ul class="nav navbar-nav navbar-left">
-                            <li><a href="#">nav bar admin</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Shoes <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/insertshoe">Insert Shoes</a></li>
+                                    <li><a href="/shoes">Update Shoes</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Brand <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/insertbrandview">Insert Brand</a></li>
+                                    <li><a href="/viewbrand">Update Brand</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    User <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/insertuserview">Insert User</a></li>
+                                    <li><a href="/viewuser">Update User</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="/tranhistory">Transaction</a></li>
                         </ul> 
                     @else
                         <ul class="nav navbar-nav navbar-left">
