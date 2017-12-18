@@ -19,26 +19,29 @@
 				<td colspan="4"><hr></td>
 		</tr>
 		<tr>
-		<form method = "get" action = "" enctype="multipart/form-data">
+			@foreach($u as $user)
 			<input type="hidden" name="sId" value = "">
 			<input type="hidden" name="subTotal" value ="">
 		
-			<td><p align="center">id</p></td>
-			<td><p align="center">user name</p></td>
-			<td><a href="">
+			<td><p align="center">{{$user->id}}</p></td>
+			<td><p align="center">{{$user->name}}</p></td>
+			<td>
+				<form method = "get" action = "/updateuserview/{{$user->id}}" enctype="multipart/form-data">
 				<p align="center"><input type="submit" value = "Detail" style="width: 80px; background-color: #4286f4; color:white;" class="form-control"></p>
-				</a>
+				</form>
 			</td>
-			<td><a href="">
+			<td>
+				<form method = "post" action = "/deleteuser/{{$user->id}}" enctype="multipart/form-data">
+					{{csrf_field()}}
 				<p align="center"><input type="submit" value = "Delete" style="width: 80px; background-color: #c11717; color:white;" class="form-control"></p>
-				</a>
+				</form>
 			</td>
 			
 		</tr>
 		<tr>
 				<td colspan="4"><hr></td>
 		</tr>
-		</form>
+		@endforeach
 
 	</table>
 </center>

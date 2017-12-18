@@ -30,6 +30,10 @@ Route::get('/insertuserview', function () {
 });
 
 route::post('/insertuser' , 'UserController@insert');
+
+Route::get('/updateuserview/{id}', 'UserController@display');
+
+route::post('/deleteuser/{id}' , 'UserController@delete') ;
 //--------------------------------------------------------------\\
 
 //controller for shoes
@@ -86,14 +90,5 @@ route::post('/updatebrand/{id}' , 'BrandController@update') ;
 
 
 
-Route::get('/test6', function () {
-    return view('updateUser');
-});
-
-
-
-Route::get('/test8', function () {
-    return view('userList');
-});
 
 

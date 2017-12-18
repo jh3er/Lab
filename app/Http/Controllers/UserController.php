@@ -23,7 +23,7 @@ class UserController extends Controller
 
         'name' => 'required|min:3',
 
-        'email' => 'required|unique' ,
+        'email' => 'required|unique:users' ,
 
         'gender' => 'required' ,
 
@@ -46,6 +46,8 @@ class UserController extends Controller
     	$u->address = $r->address ;
 
     	$u->save();
+
+        return redirect('/');
     }
 
     public function index()
@@ -53,7 +55,7 @@ class UserController extends Controller
 
         $u = User::all();
 
-        return view('', compact('s'));
+        return view('userList', compact('u'));
 
     }
 
@@ -62,6 +64,8 @@ class UserController extends Controller
         $u = User::find($id) ;
 
         $u->delete() ;
+
+        return redirect('/viewuser');
     }
 
     public function insert(Request $r)
@@ -97,6 +101,8 @@ class UserController extends Controller
         $u->address = $r->address ;
 
         $u->save();
+
+        return redirect('/');
     }
 
 
@@ -104,7 +110,7 @@ class UserController extends Controller
     {
         $u = User::find($id) ;
 
-        return view('' , compact('u')) ;
+        return view('updateUser' , compact('u')) ;
     }
 
 }
