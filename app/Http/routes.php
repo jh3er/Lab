@@ -38,7 +38,7 @@ route::post('/deleteuser/{id}' , 'UserController@delete') ;
 
 //controller for shoes
 
-route::get('/shoes' , 'ShoesController@index') ;
+route::get('/shoes/{key}' , 'ShoesController@index') ;
 
 route::get('/display/{id}' , 'ShoesController@display') ;
 

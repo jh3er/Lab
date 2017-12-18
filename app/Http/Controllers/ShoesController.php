@@ -11,13 +11,23 @@ use App\Shoes;
 use App\Cart;
 
 use Auth ;
+use Illuminate\Support\Facades\DB;
 
 class ShoesController extends Controller
 {
-    public function index()
+    public function index($key)
     {
-    	$s = Shoes::Paginate(8);
+        
+        if($key == '')
+    	   $s = Shoes::Paginate(8);
 
+        else
+        {
+            $s = DB::table('shoes')
+                ->where('shoes.name' , 'like' , '%'.$key.'%')
+                ->orWhere('shoes.brand', 'like' , '%'.$key.'%')
+                ->paginate(8) ;
+        }
     	return view('shoes', compact('s')) ;
     }
 
