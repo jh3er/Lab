@@ -51,4 +51,24 @@ route::get('/tranhistory' , 'TransactionController@index') ;
 
 route::get('/detail/{tranId}' , 'DetailController@index') ;
 
+Route::get('/test', function () {
+    return view('insertShoes');
+});
+
+Route::get('/test2', function () {
+    return view('updateShoes');
+});
+
+Route::get('/test3', function () {
+    return view('insertBrand');
+});
+
+Route::get('/test4', function () {
+    return view('updateBrand');
+});
+
+Route::get('/test5', function () {
+    return view('brandList');
+});
+
 
