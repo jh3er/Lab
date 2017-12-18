@@ -24,7 +24,7 @@ class CartController extends Controller
     	$c = DB::table('Cart')
     			->join('shoes' , 'Cart.ShoesId', '=', 'shoes.id')
     			->join('users' , 'Cart.UserId', '=', 'users.id')
-    			->select( 'shoes.picture','shoes.name' , 'Cart.quantity' , 'shoes.price' ,'Cart.subTotal' ,'Cart.id' ,'shoes.id as sId' )
+    			->select( 'shoes.picture','shoes.name' , 'Cart.quantity' , 'shoes.price' ,'Cart.subTotal' ,'Cart.id' ,'shoes.id as sId','shoes.discount' )
     			->where('Cart.UserId' , '=' , Auth::user()->id)
     			->get();
 

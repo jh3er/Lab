@@ -26,7 +26,7 @@
 			<input type="hidden" name="subTotal" value ="">
 			
 			<td><p align="center">{{$detail->name}}</p></td>
-			<td><p align="center">{{$detail->Qty * $detail->price}}</p></td>
+			<td><p align="center">{{$detail->Qty * ($detail->price - $detail->discount)}}</p></td>
 			<td><p align="center">{{$detail->Qty}}</p></td>
 			
 		</tr>
@@ -35,7 +35,7 @@
 		</tr>
 
 		<?php $totalquan += $detail->Qty?>
-		<?php $totalprice += ($detail->Qty * $detail->price)?>
+		<?php $totalprice += ($detail->Qty * ($detail->price - $detail->discount))?>
 		@endforeach
 
 		<tr>

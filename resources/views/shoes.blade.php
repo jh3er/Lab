@@ -2,8 +2,15 @@
 
 @section('content')
 
+<div class="row" style="padding-left: 5%; padding-right: 5%;">
+		<form action="/shoessearch" method = "GET">
+            <center>
+	            <input type="text" name="search" style = "width: 47% ;border-radius: 5px; display: inline-block;" class="form-control" placeholder="Search by name or brand">
+	            <input type="submit" value = "Search" class="btn" style="width: 100px;">
+            </center>
+        
+        <br>
 @foreach($s->chunk(4) as $shoes)
-	<div class="row" style="padding-left: 1%; padding-right: 1%;">
 		@foreach($shoes as $shoe)
 			<div class="col-sm-6 col-md-3">
 				<div class="thumbnail">
@@ -11,7 +18,9 @@
 					<div class="caption">
 						<h3>{{ $shoe->name }}</h3>
 						<div class="clearfix">
-							<div class="pull-left price">RP. {{ $shoe->price }} ,-</div>
+							<div class="pull-left price"><strike>RP. {{ $shoe->price }} ,-</strike></div>
+							<br>
+							<div class="pull-left price">RP. {{ $shoe->price - $shoe->discount }} ,-</div>
 							@if(Auth::user()->email === 'admin@admin.com')
 							<br>
 							<form  method="get" action="/updateShoe/{{$shoe->id}}" enctype="multipart/form-data">
@@ -33,9 +42,13 @@
 				</div>
 			</div>
 		@endforeach
-	</div>
+	
 @endforeach
 
-{{$s->links()}}
+</div>
+<div class="row" style="padding-left: 5%; padding-right: 5%; text-align: center;">
+	{{$s->links()}}
+	</form>
+</div>
 
 @endsection

@@ -31,7 +31,7 @@
 			<td width="30%"><center><img src="/upload/shoes/{{$cart->picture}}" height="70px" width="80px"></center></td>
 			<td><p align="center">{{$cart->name}}</p></td>
 			<td><p align="center">{{$cart->quantity}}</p></td>
-			<td><p align="center">{{$cart->price}}</p></td>
+			<td><p align="center">{{($cart->price - $cart->discount)}}</p></td>
 			<td><p align="center">{{$cart->subTotal}}</p></td>
 			<td><a href="/deleteCart/{{$cart->id}}">
 				<p align="center"><input type="button" value = "Delete" style="width: 80px; background-color: #c11717; color:white;" class="form-control"></p>

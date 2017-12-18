@@ -15,7 +15,7 @@ class DetailController extends Controller
 
     	$d = DB::table('detail')
     			->join('shoes' , 'shoes.id' , '=' , 'detail.ShoesID')
-    			->select('shoes.name' , 'detail.Qty' , 'shoes.price')
+    			->select('shoes.name' , 'detail.Qty' , 'shoes.price','shoes.discount')
     			->where('detail.TranId' , '=' , $tranId ) 
     			->get();
 

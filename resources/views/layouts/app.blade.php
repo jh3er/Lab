@@ -56,7 +56,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="/insertshoe">Insert Shoes</a></li>
-                                    <li><a href="/shoes">Update Shoes</a></li>
+                                    <li><a href="/shoes">View Shoes</a></li>
                                 </ul>
                             </li>
 
@@ -67,7 +67,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="/insertbrandview">Insert Brand</a></li>
-                                    <li><a href="/viewbrand">Update Brand</a></li>
+                                    <li><a href="/viewbrand">View Brand</a></li>
                                 </ul>
                             </li>
 
@@ -78,7 +78,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="/insertuserview">Insert User</a></li>
-                                    <li><a href="/viewuser">Update User</a></li>
+                                    <li><a href="/viewuser">View User</a></li>
                                 </ul>
                             </li>
 

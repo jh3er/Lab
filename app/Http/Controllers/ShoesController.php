@@ -15,22 +15,29 @@ use Illuminate\Support\Facades\DB;
 
 class ShoesController extends Controller
 {
-    public function index($key)
+    public function index()
     {
-        
-        if($key == '')
-    	   $s = Shoes::Paginate(8);
+         $s = Shoes::Paginate(8);
 
-        else
-        {
-            $s = DB::table('shoes')
-                ->where('shoes.name' , 'like' , '%'.$key.'%')
-                ->orWhere('shoes.brand', 'like' , '%'.$key.'%')
-                ->paginate(8) ;
-        }
+            // $s = DB::table('shoes')
+            //     ->where('shoes.name' , 'like' , '%'.$key.'%')
+            //     ->orWhere('shoes.brand', 'like' , '%'.$key.'%')
+            //     ->paginate(8) ;
+
     	return view('shoes', compact('s')) ;
     }
 
+    public function search(Request $r)
+    {
+
+            $s = DB::table('shoes')
+                ->where('shoes.name' , 'like' , '%'.$r->search.'%')
+                ->orWhere('shoes.brand', 'like' , '%'.$r->search.'%')
+                ->paginate(8) ;
+
+        return view('shoes', compact('s')) ;
+
+    }
     // buat display masing2 sepatu
     
     public function display($id)
