@@ -20,6 +20,31 @@ use App\Shoes ;
 
 class TransactionController extends Controller
 {
+    // show all transaction
+
+    public function index()
+    {
+
+        if(Auth::user()->name == 'admin')
+        {
+
+            $t = Transaction::all() ;
+
+            dd($t);
+            
+            return view ('' , compact('t')) ;
+
+        }
+
+        else
+        {
+            $t = DB::table('transactions')
+                    ->where('UserId' , '=' , Auth::user()->id)
+                    ->get();
+            dd($t);
+        }    
+
+    }
 
 	public function insert(Request $r)
 	{
@@ -76,5 +101,6 @@ class TransactionController extends Controller
 
     	return redirect('/');
 	}
+
 
 }

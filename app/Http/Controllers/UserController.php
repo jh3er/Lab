@@ -11,7 +11,7 @@ use App\User;
 class UserController extends Controller
 {
 
-	public function index()
+	public function profile()
     {
     	return view('profile');
     }
@@ -35,4 +35,15 @@ class UserController extends Controller
 
     	$u->save();
     }
+
+    public function index()
+    {
+
+        $u = User::all();
+
+        return view('', compact('s'));
+
+    }
+
+    
 }

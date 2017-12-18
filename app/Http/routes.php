@@ -19,9 +19,11 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/profile','UserController@index');
+Route::get('/profile','UserController@profile');
 
 Route::post('/updateUser/{id}' , 'UserController@update');
+
+Route::get('/viewuser' , 'UserController@index');
 
 //--------------------------------------------------------------\\
 
@@ -43,5 +45,7 @@ route::get('/deleteCart/{id}' , 'CartController@delete') ;
 //controller for transaction
 
 route::post('/checkout' ,'TransactionController@insert') ;
+
+route::get('/tranhistory' , 'TransactionController@index') ;
 
 //route::post('/register' , 'UserController@register');
