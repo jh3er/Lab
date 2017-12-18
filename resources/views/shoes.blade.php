@@ -12,9 +12,20 @@
 						<h3>{{ $shoe->name }}</h3>
 						<div class="clearfix">
 							<div class="pull-left price">RP. {{ $shoe->price }} ,-</div>
+							@if(Auth::user()->email === 'admin@admin.com')
+							<form  method="get" action="/updateShoe/{{$shoe->id}}" enctype="multipart/form-data">
+								<input type="submit" class="btn btn-success pull-right" value="Display">
+							</form>
+							<form  method="post" action="/deleteshoes/{{$shoe->id}}" enctype="multipart/form-data">
+								{{csrf_field()}}
+								<input type="submit" class="btn btn-danger" value="Delete">
+						
+							</form>
+							@else
 							<form  method="get" action="/display/{{$shoe->id}}" enctype="multipart/form-data">
 								<input type="submit" class="btn btn-success pull-right" value="Display">
 							</form>
+							@endif
 						</div>
 					</div>
 				</div>

@@ -35,6 +35,17 @@ route::get('/display/{id}' , 'ShoesController@display') ;
 
 route::post('/addCart/{id}/{price}' , 'ShoesController@addToCart') ;
 
+route::post('/insertsh' , 'ShoesController@insert') ;
+
+Route::get('/insertshoe', function () {
+    return view('insertShoes');
+});
+
+Route::get('/updateShoe/{id}' , 'ShoesController@display') ;
+
+route::post('/updateshoes/{id}' , 'ShoesController@update') ;
+
+route::post('/deleteshoes/{id}' , 'ShoesController@delete') ;
 //--------------------------------------------------------------\\
 //controller for cart
 route::get('/viewcart' ,'CartController@index') ;
@@ -51,24 +62,23 @@ route::get('/tranhistory' , 'TransactionController@index') ;
 
 route::get('/detail/{tranId}' , 'DetailController@index') ;
 
-Route::get('/test', function () {
-    return view('insertShoes');
-});
 
-Route::get('/test2', function () {
-    return view('updateShoes');
-});
 
-Route::get('/test3', function () {
+//--------------------------------------------------------------\\
+//controller for brand
+
+Route::get('/viewbrand', 'BrandController@index');
+
+Route::get('/insertbrandview', function () {
     return view('insertBrand');
 });
 
-Route::get('/test4', function () {
-    return view('updateBrand');
-});
+route::post('/insertbrand' , 'BrandController@insert') ;
 
-Route::get('/test5', function () {
-    return view('brandList');
-});
+Route::get('/updatebrandview/{id}', 'BrandController@display');
+
+route::post('/updatebrand/{id}' , 'BrandController@update') ;
+
+
 
 

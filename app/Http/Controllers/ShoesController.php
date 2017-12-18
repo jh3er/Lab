@@ -28,7 +28,15 @@ class ShoesController extends Controller
 
     	$shoe = Shoes::find($id) ;
 
-    	return view ('displayShoes' , compact('shoe')) ;
+        if(Auth::user()->name == 'admin')
+        {
+            return view('updateShoes' , compact('shoe'));
+        }
+        else
+        {
+            return view('displayShoes' , compact('shoe'));
+        }
+
 
     }
 
@@ -53,11 +61,27 @@ class ShoesController extends Controller
 
     public function insert(Request $r)
     {
+        // $this->validate($r, [
+
+        // 'name' => 'required|unique|min:3',
+
+        // 'brand' => 'required' ,
+
+        // 'description' => 'required' ,
+
+        // 'price' => 'numeric|min:1000' ,
+
+        // 'discount' => 'required|numeric|min:0|max:100' ,
+
+        // 'stock' => 'required|numeric|min:0|max:100' 
+
+        // ]);
+
         $file = $r->file('picture') ;
 
         $filename = $file->getClientOriginalName();
 
-        $request->file('picture')->move("upload/shoes", $filename);
+        $r->file('picture')->move("upload/shoes", $filename);
 
         $newS = new Shoes ;
 
@@ -75,25 +99,44 @@ class ShoesController extends Controller
 
         $newS->description = $r->description ;
 
-        $newS->comments = $r->comments ;
-
         $newS->save();
 
+        return redirect('/');
     }
+
 
     public function update(Request $r , $id)
     {
-        $file = $r->file('picture') ;
+        // $this->validate($r, [
 
-        $filename = $file->getClientOriginalName();
+        // 'name' => 'required|unique|min:3',
 
-        $request->file('picture')->move("upload/shoes", $filename);
+        // 'brand' => 'required' ,
+
+        // 'description' => 'required' ,
+
+        // 'price' => 'numeric|min:1000' ,
+
+        // 'discount' => 'required|numeric|min:0|max:100' ,
+
+        // 'stock' => 'required|numeric|min:0|max:100' 
+
+        // ]);
+        
+        if($r->hasFile('picture'))
+        {
+            $file = $r->file('picture') ;
+
+            $filename = $file->getClientOriginalName();
+
+            $request->file('picture')->move("upload/shoes", $filename);
+
+            $s->picture = $filename ;
+        }
 
         $s = Shoes::find($id) ;
 
         $s->name = $r->name ;
-
-        $s->picture = $filename ;
 
         $s->brand = $r->brand ;
 
@@ -109,6 +152,8 @@ class ShoesController extends Controller
 
         $s->save();
 
+        return redirect('/');
+
     }
 
     public function delete($id)
@@ -116,6 +161,8 @@ class ShoesController extends Controller
         $s = Shoes::find($id) ;
 
         $s->delete();
+
+        return redirect('shoes');
     }
 
 }

@@ -39,7 +39,7 @@ class TransactionController extends Controller
             $t = DB::table('transactions')
                     ->where('UserId' , '=' , Auth::user()->id)
                     ->get();
-                    
+
             return view ('transaction' , compact('t')) ;       
         }    
 
@@ -101,5 +101,13 @@ class TransactionController extends Controller
     	return redirect('/');
 	}
 
+    public function delete($id)
+    {
+
+        $t = Transaction::find($id) ;
+
+        $t->delete();
+
+    }
 
 }

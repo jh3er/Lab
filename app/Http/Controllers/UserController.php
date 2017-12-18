@@ -19,6 +19,18 @@ class UserController extends Controller
     public function update(Request $r , $id)
     {
 
+        $this->validate($r, [
+
+        'name' => 'required|min:3',
+
+        'email' => 'required|unique' ,
+
+        'gender' => 'required' ,
+
+        'address' => 'required|min:10' 
+
+        ]);
+
     	$u = User::find($id) ;
 
     	$u->name = $r->name ;
@@ -45,5 +57,10 @@ class UserController extends Controller
 
     }
 
-    
+    public function delete($id)
+    {
+        $u = User::find($id) ;
+
+        $u->delete() ;
+    }
 }

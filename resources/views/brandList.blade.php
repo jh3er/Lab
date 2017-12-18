@@ -19,15 +19,17 @@
 				<td colspan="4"><hr></td>
 		</tr>
 		<tr>
-		<form method = "get" action = "" enctype="multipart/form-data">
+		@foreach($b as $brand)
+		
 			<input type="hidden" name="sId" value = "">
 			<input type="hidden" name="subTotal" value ="">
 		
-			<td><p align="center">id</p></td>
-			<td><p align="center">brand name</p></td>
-			<td><a href="">
+			<td><p align="center">{{$brand->id}}</p></td>
+			<td><p align="center">{{$brand->name}}</p></td>
+			<td>
+				<form method = "get" action = "/updatebrandview/{{$brand->id}}" enctype="multipart/form-data">
 				<p align="center"><input type="submit" value = "Detail" style="width: 80px; background-color: #4286f4; color:white;" class="form-control"></p>
-				</a>
+				</form>
 			</td>
 			<td><a href="">
 				<p align="center"><input type="submit" value = "Delete" style="width: 80px; background-color: #c11717; color:white;" class="form-control"></p>
@@ -38,8 +40,9 @@
 		<tr>
 				<td colspan="4"><hr></td>
 		</tr>
+		@endforeach
 		</form>
-
+		
 	</table>
 </center>
 

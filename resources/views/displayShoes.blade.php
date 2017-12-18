@@ -19,7 +19,7 @@
 			<div class="clearfix">
 				<div class="pull-left price">RP. {{ $shoe->price }} ,-</div>
 				
-					<input type="submit" class="btn btn-success pull-right" value="add to cart">
+				<input type="submit" class="btn btn-success pull-right" value="add to cart">
 				</form>
 			</div>
 		</div>
