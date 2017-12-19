@@ -11,6 +11,14 @@
                     <form class="form-horizontal" role="form" method="POST" action="/updateshoes/{{$shoe->id}}" enctype="multipart/form-data">
                         {{csrf_field()}}
 
+
+                        <div class="form-group">
+                      
+                            <div class="col-md-6" style="margin-left: 15%;">
+                                <img src="/upload/shoes/{{$shoe->picture}}" width="200px" height="200px">
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Name</label>
                             <div class="col-md-6">

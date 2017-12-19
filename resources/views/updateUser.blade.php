@@ -10,7 +10,12 @@
 
                     <form class="form-horizontal" role="form" method="POST" action="/updateUser/{{$u->id}}" enctype="multipart/form-data">
                         {{csrf_field()}}
-                        <div class="form-group" style="margin-left: 15%;">
+
+                        <div class="form-group">
+                      
+                            <div class="col-md-6" style="margin-left: 15%;">
+                                <img src="/upload/profile/{{$u->profile_picture}}" height="200px" width="200px">
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -70,12 +75,9 @@
 
                             </div>
                         </div>
-
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i> Update User
-                                </button>
+                                <input type="submit" class="btn btn-primary" value="Update User">
                             </div>
                         </div>
                     </form>
