@@ -8,7 +8,7 @@
 	            <input type="text" name="search" style = "width: 47% ;border-radius: 5px; display: inline-block;" class="form-control" placeholder="Search by name or brand">
 	            <input type="submit" value = "Search" class="btn" style="width: 100px;">
             </center>
-        
+        </form>
         <br>
 @foreach($s->chunk(4) as $shoes)
 		@foreach($shoes as $shoe)

@@ -21,11 +21,11 @@ class CartController extends Controller
     {
 
 
-    	$c = DB::table('Cart')
-    			->join('shoes' , 'Cart.ShoesId', '=', 'shoes.id')
-    			->join('users' , 'Cart.UserId', '=', 'users.id')
-    			->select( 'shoes.picture','shoes.name' , 'Cart.quantity' , 'shoes.price' ,'Cart.subTotal' ,'Cart.id' ,'shoes.id as sId','shoes.discount' )
-    			->where('Cart.UserId' , '=' , Auth::user()->id)
+    	$c = DB::table('cart')
+    			->join('shoes' , 'cart.ShoesId', '=', 'shoes.id')
+    			->join('users' , 'cart.UserId', '=', 'users.id')
+    			->select( 'shoes.picture','shoes.name' , 'cart.quantity' , 'shoes.price' ,'cart.subTotal' ,'cart.id' ,'shoes.id as sId','shoes.discount' )
+    			->where('cart.UserId' , '=' , Auth::user()->id)
     			->get();
 
     	

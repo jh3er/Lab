@@ -126,7 +126,7 @@
     <div class="container-fluid text-center">
         <div class="fixed-bottom" style="margin-top:25px; background-color:Gray;">
             <br>
-            <p>SneakeLLs © 2017| your daily dose | follow us</p> 
+            <p>SneakerShop © 2017| your daily dose | follow us </p> 
         </div>
     </div>
 
